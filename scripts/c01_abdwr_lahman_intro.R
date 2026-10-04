@@ -22,3 +22,12 @@ pacman::p_load("tidyverse", "assertthat", "babynames", "broom", "compare", "DBI"
 # Additional Packages
 pacman::p_load(Lahman)
 
+# Take a look
+batting <- select(as_tibble(Batting), playerID, yearID, teamID, G, AB:H, HR)
+
+glimpse(batting)
+
+batting |>
+  clean_names() |>
+  arrange(desc(hr))
+
